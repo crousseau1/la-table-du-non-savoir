@@ -99,17 +99,21 @@ const STORAGE = (() => {
   }
 
   async function putQuestions(payload) {
-    const res = await fetch(`${CRUD_BASE}/questions?t=${Date.now()}`, { cache: "no-store" });
-    const rows = res.ok ? await res.json() : [];
-    const id = Array.isArray(rows) && rows[0] && rows[0]._id;
+    let id = "";
+    try {
+      const res = await fetch(`${CRUD_BASE}/questions`, { cache: "no-store" });
+      const rows = res.ok ? await res.json() : [];
+      id = Array.isArray(rows) && rows[0] ? String(rows[0]._id || "") : "";
+    } catch {
+      id = "";
+    }
     if (id) {
       const put = await fetch(`${CRUD_BASE}/questions/${id}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),
       });
-      if (!put.ok) throw new Error("Impossible d’enregistrer.");
-      return;
+      if (put.ok) return;
     }
     const created = await fetch(`${CRUD_BASE}/questions`, {
       method: "POST",
@@ -119,21 +123,12 @@ const STORAGE = (() => {
     if (!created.ok) throw new Error("Impossible d’enregistrer.");
   }
 
-  async function save(questions, code) {
+  async function save(questions) {
     const clean = sanitize(questions);
     if (!clean.length) throw new Error("Aucune question complète.");
     const payload = { updatedAt: new Date().toISOString(), questions: clean };
     await putQuestions(payload);
     remember(clean);
-    try {
-      await fetch("/api/questions", {
-        method: "PUT",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ code, questions: clean }),
-      });
-    } catch {
-      /* GitHub Pages n’a pas ce serveur ; crudcrud suffit */
-    }
     return { questions: clean, online: true };
   }
 

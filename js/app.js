@@ -404,7 +404,7 @@
     const current = collectAdmin();
     persistDraft();
     try {
-      const result = await STORAGE.save(current, ADMIN_CODE);
+      const result = await STORAGE.save(current);
       QUESTIONS = result.questions;
       renderAdmin(current);
       updateHome();
