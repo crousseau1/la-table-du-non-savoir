@@ -1,6 +1,8 @@
 (() => {
   const DURATION = 30;
   const CIRCUMFERENCE = 2 * Math.PI * 52;
+  localStorage.removeItem("table-non-savoir-best");
+  document.getElementById("best-score")?.remove();
 
   let QUESTIONS = [];
 
