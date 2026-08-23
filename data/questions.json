@@ -1,0 +1,112 @@
+{
+  "updatedAt": "2026-08-23T13:14:17.009Z",
+  "questions": [
+    {
+      "theme": "Géographie",
+      "question": "Dans quel pays se trouve le site inca du Machu Picchu ?",
+      "display": "Pérou",
+      "answers": [
+        "perou",
+        "pérou",
+        "republique du perou",
+        "république du pérou"
+      ]
+    },
+    {
+      "theme": "Histoire",
+      "question": "Quel empereur français est mort en exil sur l'île de Sainte-Hélène ?",
+      "display": "Napoléon Ier",
+      "answers": [
+        "napoleon",
+        "napoleon ier",
+        "napoleon 1er",
+        "napoleon 1",
+        "napoleon bonaparte",
+        "bonaparte"
+      ]
+    },
+    {
+      "theme": "Sciences",
+      "question": "Quelle planète du système solaire est la plus proche du Soleil ?",
+      "display": "Mercure",
+      "answers": [
+        "mercure"
+      ]
+    },
+    {
+      "theme": "Littérature",
+      "question": "Quel est le vrai nom de Molière ?",
+      "display": "Jean-Baptiste Poquelin",
+      "answers": [
+        "jean baptiste poquelin",
+        "jean-baptiste poquelin",
+        "poquelin",
+        "j b poquelin"
+      ]
+    },
+    {
+      "theme": "Cinéma",
+      "question": "Dans quel film de 1977 un droïde nommé R2-D2 accompagne-t-il une princesse rebelle ?",
+      "display": "Star Wars (Un nouvel espoir)",
+      "answers": [
+        "star wars",
+        "la guerre des etoiles",
+        "guerre des etoiles",
+        "star wars un nouvel espoir",
+        "un nouvel espoir",
+        "star wars episode 4",
+        "star wars episode iv"
+      ]
+    },
+    {
+      "theme": "Sport",
+      "question": "Dans quelle ville se sont déroulés les Jeux olympiques d'été de 2024 ?",
+      "display": "Paris",
+      "answers": [
+        "paris",
+        "paris france"
+      ]
+    },
+    {
+      "theme": "Musique",
+      "question": "Combien de cordes possède un violon classique ?",
+      "display": "4",
+      "answers": [
+        "4",
+        "quatre",
+        "4 cordes"
+      ]
+    },
+    {
+      "theme": "Gastronomie",
+      "question": "Quel fromage français affiné dans des caves est produit à Roquefort-sur-Soulzon ?",
+      "display": "Roquefort",
+      "answers": [
+        "roquefort",
+        "fromage de roquefort"
+      ]
+    },
+    {
+      "theme": "Nature",
+      "question": "Quel est le plus grand océan de la planète ?",
+      "display": "Océan Pacifique",
+      "answers": [
+        "pacifique",
+        "ocean pacifique",
+        "océan pacifique",
+        "le pacifique"
+      ]
+    },
+    {
+      "theme": "Arts",
+      "question": "Quelle tour parisienne a été construite pour l'Exposition universelle de 1889 ?",
+      "display": "La tour Eiffel",
+      "answers": [
+        "tour eiffel",
+        "la tour eiffel",
+        "eiffel",
+        "la eiffel"
+      ]
+    }
+  ]
+}

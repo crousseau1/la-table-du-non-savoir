@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>La Table du non Savoir</title>
+    <meta
+      name="description"
+      content="Dix questions de culture générale. Trente secondes pour chacune. Asseyez-vous à la table."
+    />
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='42' fill='%23140c08' stroke='%23c9a227' stroke-width='6'/><circle cx='50' cy='50' r='18' fill='%23c9a227'/></svg>" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Outfit:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <div class="atmosphere" aria-hidden="true">
+      <div class="glow glow-a"></div>
+      <div class="glow glow-b"></div>
+      <div class="vignette"></div>
+      <div class="grain"></div>
+    </div>
+
+    <main class="stage">
+      <section class="screen is-active" id="screen-home" data-screen="home">
+        <div class="home-mark" aria-hidden="true">
+          <svg viewBox="0 0 220 220" class="table-seal">
+            <circle cx="110" cy="110" r="104" fill="none" stroke="currentColor" stroke-width="1.2" opacity="0.35" />
+            <circle cx="110" cy="110" r="88" fill="none" stroke="currentColor" stroke-width="2.4" />
+            <circle cx="110" cy="110" r="62" fill="none" stroke="currentColor" stroke-width="1" opacity="0.5" />
+            <circle cx="110" cy="110" r="18" fill="currentColor" />
+            <path d="M110 22 L114 48 L110 44 L106 48 Z" fill="currentColor" />
+            <path d="M110 198 L114 172 L110 176 L106 172 Z" fill="currentColor" />
+            <path d="M22 110 L48 106 L44 110 L48 114 Z" fill="currentColor" />
+            <path d="M198 110 L172 114 L176 110 L172 106 Z" fill="currentColor" />
+          </svg>
+        </div>
+        <h1>La Table du<br /><em>non Savoir</em></h1>
+        <button class="btn btn-gold" id="btn-start" type="button" disabled>
+          Chargement…
+        </button>
+        <p class="best-score" id="best-score" hidden></p>
+        <form class="admin-gate" id="admin-gate" autocomplete="off">
+          <div class="admin-gate-row">
+            <input id="admin-code" type="password" name="master-code" placeholder="Code" maxlength="40" autocomplete="off" />
+            <button class="btn btn-ghost" type="submit">Ouvrir</button>
+          </div>
+          <p class="admin-gate-error" id="admin-gate-error" hidden>Code incorrect.</p>
+        </form>
+      </section>
+
+      <section class="screen" id="screen-countdown" data-screen="countdown">
+        <p class="countdown-digit" id="countdown-digit">3</p>
+      </section>
+
+      <section class="screen" id="screen-quiz" data-screen="quiz">
+        <header class="quiz-top">
+          <div class="quiz-brand">La Table du non Savoir</div>
+          <div class="quiz-progress" id="quiz-progress" aria-hidden="true"></div>
+        </header>
+
+        <div class="quiz-layout">
+          <div class="timer-wrap">
+            <svg class="timer-ring" viewBox="0 0 120 120" aria-hidden="true">
+              <circle class="timer-track" cx="60" cy="60" r="52" />
+              <circle class="timer-bar" id="timer-bar" cx="60" cy="60" r="52" />
+            </svg>
+            <div class="timer-face">
+              <strong id="timer-seconds">30</strong>
+              <span>sec</span>
+            </div>
+          </div>
+
+          <article class="question-card">
+            <p class="question-meta">
+              <span id="question-index">Question 1 / 10</span>
+              <span class="dot">·</span>
+              <span id="question-theme">Géographie</span>
+            </p>
+            <h2 id="question-text"></h2>
+            <form id="answer-form" autocomplete="off">
+              <label class="sr-only" for="answer-input">Votre réponse</label>
+              <input
+                id="answer-input"
+                name="answer"
+                type="text"
+                maxlength="80"
+                placeholder="Réponse"
+                autocapitalize="off"
+                autocorrect="off"
+                spellcheck="false"
+              />
+              <button class="btn btn-gold" type="submit">Valider</button>
+            </form>
+          </article>
+        </div>
+      </section>
+
+      <section class="screen" id="screen-results" data-screen="results">
+        <p class="score-line">
+          <strong id="score-value">0</strong>
+          <span id="score-total">/ 10</span>
+        </p>
+        <div class="results-actions">
+          <button class="btn btn-gold btn-replay" type="button">Rejouer</button>
+        </div>
+        <ol class="recap" id="recap"></ol>
+      </section>
+
+      <section class="screen" id="screen-admin" data-screen="admin">
+        <header class="admin-top">
+          <h2 class="admin-title">Questions</h2>
+          <button class="btn btn-ghost" id="btn-admin-home" type="button">Retour</button>
+        </header>
+        <p class="admin-status" id="admin-status" hidden></p>
+        <div class="admin-toolbar">
+          <button class="btn btn-ghost" id="btn-add-question" type="button">Ajouter</button>
+          <button class="btn btn-gold" id="btn-save-questions" type="button">Enregistrer</button>
+        </div>
+        <div class="admin-list" id="admin-list"></div>
+      </section>
+    </main>
+
+    <script src="js/config.js"></script>
+    <script src="js/questions.js"></script>
+    <script src="js/storage.js"></script>
+    <script src="js/app.js"></script>
+  </body>
+</html>

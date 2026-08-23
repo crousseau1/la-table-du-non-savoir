@@ -1,0 +1,92 @@
+const DEFAULT_QUESTIONS = [
+  {
+    theme: "Géographie",
+    question: "Dans quel pays se trouve le site inca du Machu Picchu ?",
+    answers: ["perou", "pérou", "republique du perou", "république du pérou"],
+    display: "Pérou",
+  },
+  {
+    theme: "Histoire",
+    question: "Quel empereur français est mort en exil sur l'île de Sainte-Hélène ?",
+    answers: [
+      "napoleon",
+      "napoleon ier",
+      "napoleon 1er",
+      "napoleon 1",
+      "napoleon bonaparte",
+      "bonaparte",
+    ],
+    display: "Napoléon Ier",
+  },
+  {
+    theme: "Sciences",
+    question: "Quelle planète du système solaire est la plus proche du Soleil ?",
+    answers: ["mercure"],
+    display: "Mercure",
+  },
+  {
+    theme: "Littérature",
+    question: "Quel est le vrai nom de Molière ?",
+    answers: [
+      "jean baptiste poquelin",
+      "jean-baptiste poquelin",
+      "poquelin",
+      "j b poquelin",
+    ],
+    display: "Jean-Baptiste Poquelin",
+  },
+  {
+    theme: "Cinéma",
+    question: "Dans quel film de 1977 un droïde nommé R2-D2 accompagne-t-il une princesse rebelle ?",
+    answers: [
+      "star wars",
+      "la guerre des etoiles",
+      "guerre des etoiles",
+      "star wars un nouvel espoir",
+      "un nouvel espoir",
+      "star wars episode 4",
+      "star wars episode iv",
+    ],
+    display: "Star Wars (Un nouvel espoir)",
+  },
+  {
+    theme: "Sport",
+    question: "Dans quelle ville se sont déroulés les Jeux olympiques d'été de 2024 ?",
+    answers: ["paris", "paris france"],
+    display: "Paris",
+  },
+  {
+    theme: "Musique",
+    question: "Combien de cordes possède un violon classique ?",
+    answers: ["4", "quatre", "4 cordes"],
+    display: "4",
+  },
+  {
+    theme: "Gastronomie",
+    question: "Quel fromage français affiné dans des caves est produit à Roquefort-sur-Soulzon ?",
+    answers: ["roquefort", "fromage de roquefort"],
+    display: "Roquefort",
+  },
+  {
+    theme: "Nature",
+    question: "Quel est le plus grand océan de la planète ?",
+    answers: [
+      "pacifique",
+      "ocean pacifique",
+      "océan pacifique",
+      "le pacifique",
+    ],
+    display: "Océan Pacifique",
+  },
+  {
+    theme: "Arts",
+    question: "Quelle tour parisienne a été construite pour l'Exposition universelle de 1889 ?",
+    answers: [
+      "tour eiffel",
+      "la tour eiffel",
+      "eiffel",
+      "la eiffel",
+    ],
+    display: "La tour Eiffel",
+  },
+];
