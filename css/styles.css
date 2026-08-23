@@ -410,13 +410,6 @@ h1 em {
   color: var(--danger);
 }
 
-.best-score {
-  margin: 18px 0 0;
-  text-align: center;
-  color: var(--muted);
-  font-size: 0.9rem;
-}
-
 .countdown-digit {
   margin: 12px 0 8px;
   text-align: center;

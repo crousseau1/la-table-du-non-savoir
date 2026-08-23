@@ -1,7 +1,6 @@
 (() => {
   const DURATION = 30;
   const CIRCUMFERENCE = 2 * Math.PI * 52;
-  const BEST_KEY = "table-non-savoir-best";
 
   let QUESTIONS = [];
 
@@ -16,7 +15,6 @@
   const els = {
     start: document.getElementById("btn-start"),
     replayBtns: document.querySelectorAll(".btn-replay"),
-    best: document.getElementById("best-score"),
     countdownDigit: document.getElementById("countdown-digit"),
     progress: document.getElementById("quiz-progress"),
     timerWrap: document.querySelector(".timer-wrap"),
@@ -80,19 +78,11 @@
     });
   }
 
-  function renderBest() {
-    const best = Number(localStorage.getItem(BEST_KEY) || 0);
-    if (!best) return;
-    els.best.hidden = false;
-    els.best.textContent = `Meilleur : ${best} / ${QUESTIONS.length || 10}`;
-  }
-
   function updateHome() {
     const n = QUESTIONS.length || 10;
     els.scoreTotal.textContent = `/ ${n}`;
     els.start.disabled = !QUESTIONS.length;
     els.start.textContent = QUESTIONS.length ? "Jouer" : "Aucune question";
-    renderBest();
   }
 
   function buildProgress() {
@@ -191,8 +181,6 @@
 
   function finish() {
     const score = state.answers.filter((a) => a.ok).length;
-    const previous = Number(localStorage.getItem(BEST_KEY) || 0);
-    if (score > previous) localStorage.setItem(BEST_KEY, String(score));
 
     els.scoreValue.textContent = String(score);
     els.scoreTotal.textContent = `/ ${QUESTIONS.length}`;
@@ -215,7 +203,6 @@
     }).join("");
 
     show("results");
-    renderBest();
     STORAGE.savePlay({
       at: new Date().toISOString(),
       name: (els.playerName.value || "").trim() || "Anonyme",
