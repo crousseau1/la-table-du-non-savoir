@@ -1,82 +1,79 @@
 {
-  "updatedAt": "2026-08-23T13:54:00.000Z",
+  "updatedAt": "2026-08-23T15:57:35.51Z",
   "questions": [
     {
-      "theme": "Rando",
-      "question": "Quel est le numéro associé au GR faisant le tour de la côte bretonne ?",
-      "display": "GR 34",
-      "answers": ["gr 34", "34", "le 34", "gr34", "le gr 34"]
-    },
-    {
-      "theme": "Bâtiments marins",
-      "question": "Comment s'appel le phare qu'on peut observer depuis ce GR ?",
-      "display": "Le phare el williams",
+      "theme": "Hébergement",
+      "question": "Quel était le nom du camping dans lequel on a séjourné ?",
+      "display": "Camping des Chevrets",
       "answers": [
-        "Le phare el williams",
-        "phare el williams",
-        "phare ellwilliams",
-        "Pharrell Williams",
-        "pharrell williams",
-        "el williams"
+        "Chevret",
+        "Chevrets",
+        "chevret",
+        "chevrets"
       ]
     },
     {
-      "theme": "Djeuns",
-      "question": "Quelle est la seule chose qu'on peut écrire avec le caillou trouvé sur la plage de St Malo ?",
-      "display": "Six-seven",
-      "answers": ["67", "six seven", "six-seven", "sixseven", "6 7", "6-7"]
-    },
-    {
-      "theme": "Jeux",
-      "question": "Quel est le meilleur jeu effectué pendant la rando ?",
-      "display": "Monopoly Deal",
-      "answers": ["Monopoly Deal", "Monopoly", "Deal", "monopoly deal"]
-    },
-    {
-      "theme": "Cinéma",
-      "question": "Quel film faisant suite à une série masterclass va sortir en Novembre ?",
-      "display": "The Hunger Games : Sunrise on the Reaping",
+      "theme": "Oups la boulette",
+      "question": "Quel a été ton bourbier préféré ?",
+      "display": "La tempête",
       "answers": [
-        "Hunger Games",
-        "Hunger Games 6",
-        "The Hunger Games",
-        "The Hunger Games : Sunrise on the Reaping",
-        "sunrise on the reaping"
+        "tempête",
+        "pluie",
+        "rosette dans le sable",
+        "sable",
+        "vase",
+        "bégaiement"
       ]
     },
     {
       "theme": "Sport",
-      "question": "Quelle distance (arrondie à la dizaine) avons nous parcouru en 2 jours ?",
-      "display": "50",
-      "answers": ["50", "50km", "50 km", "cinquante"]
-    },
-    {
-      "theme": "Musique",
-      "question": "Quel est le nom de la version bretonne de la cornemuse ?",
-      "display": "Le Biniou",
-      "answers": ["Le Biniou", "Biniou", "biniou"]
-    },
-    {
-      "theme": "Gastronomie",
-      "question": "Quel était le goût du saucisson lors du pique-nique sur la plage ?",
-      "display": "Au sable",
-      "answers": ["sable", "au sable", "goût sable", "gout sable"]
-    },
-    {
-      "theme": "Culture",
-      "question": "A cause de qui je bégayais pendant 2 jours ?",
-      "display": "Lucile Muller",
-      "answers": ["Lucile Muller", "Lucile", "lucile muller"]
-    },
-    {
-      "theme": "Arts",
-      "question": "A qui appartient la tombe présente sur l'île du Grand Bé",
-      "display": "François-René Chateaubriand",
+      "question": "Quelle est l'activité préférée de Clement ?",
+      "display": "Se baigner",
       "answers": [
-        "François-René Chateaubriand",
-        "Chateaubriand",
-        "A Chateaubriand",
-        "francois rene chateaubriand"
+        "Nager",
+        "Pas le handball"
+      ]
+    },
+    {
+      "theme": "Nuit",
+      "question": "Combien de minutes d'affilée Clement a t-il dormi au total?",
+      "display": "10",
+      "answers": [
+        "dix"
+      ]
+    },
+    {
+      "theme": "plouc",
+      "question": "Entre la bu, la chouille et la rando, quel moment a été le plus aléatoire ?",
+      "display": "la bu pcq on révise pas",
+      "answers": [
+        "BU"
+      ]
+    },
+    {
+      "theme": "Train",
+      "question": "Combien de minutes a t il manqué à Lu pour avoir sa correspondance ?",
+      "display": "15",
+      "answers": [
+        "15 min",
+        "quinze",
+        "15 minutes"
+      ]
+    },
+    {
+      "theme": "Facile",
+      "question": "Quel est le vrai prénom de Clément",
+      "display": "CORENTIN",
+      "answers": [
+        "Corentin"
+      ]
+    },
+    {
+      "theme": "Gamberge",
+      "question": "T'es plus hyperactif ou gênant ?",
+      "display": "Gênant",
+      "answers": [
+        "gênant"
       ]
     }
   ]
