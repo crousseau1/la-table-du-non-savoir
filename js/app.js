@@ -38,6 +38,8 @@
     adminHome: document.getElementById("btn-admin-home"),
     addQuestion: document.getElementById("btn-add-question"),
     saveQuestions: document.getElementById("btn-save-questions"),
+    playerName: document.getElementById("player-name"),
+    playsList: document.getElementById("plays-list"),
   };
 
   const state = {
@@ -214,6 +216,21 @@
 
     show("results");
     renderBest();
+    STORAGE.savePlay({
+      at: new Date().toISOString(),
+      name: (els.playerName.value || "").trim() || "Anonyme",
+      score,
+      total: QUESTIONS.length,
+      answers: QUESTIONS.map((q, i) => {
+        const a = state.answers[i];
+        return {
+          question: q.question,
+          given: a.given || (a.timedOut ? "Temps écoulé" : ""),
+          expected: q.display,
+          ok: a.ok,
+        };
+      }),
+    }).catch(() => {});
   }
 
   function escapeHtml(text) {
@@ -280,10 +297,62 @@
     els.adminStatus.classList.toggle("is-ko", kind === "ko");
   }
 
-  function openAdmin() {
-    renderAdmin(QUESTIONS);
+  function persistDraft() {
+    STORAGE.saveDraft(collectAdmin());
+  }
+
+  function formatPlayDate(value) {
+    const date = new Date(value);
+    if (Number.isNaN(date.getTime())) return "";
+    return date.toLocaleString("fr-FR", {
+      day: "2-digit",
+      month: "2-digit",
+      hour: "2-digit",
+      minute: "2-digit",
+    });
+  }
+
+  function renderPlays(plays) {
+    if (!plays.length) {
+      els.playsList.innerHTML = `<p class="plays-empty">Personne n’a encore joué.</p>`;
+      return;
+    }
+    els.playsList.innerHTML = plays
+      .map((play) => {
+        const answers = Array.isArray(play.answers) ? play.answers : [];
+        const rows = answers
+          .map(
+            (a) => `
+            <li class="${a.ok ? "is-ok" : "is-ko"}">
+              <p>${escapeHtml(a.question || "")}</p>
+              <span>${escapeHtml(a.given || "—")}</span>
+            </li>`
+          )
+          .join("");
+        return `
+          <article class="play-card">
+            <div class="play-head">
+              <strong>${escapeHtml(play.name || "Anonyme")}</strong>
+              <span>${play.score || 0} / ${play.total || "?"} · ${escapeHtml(formatPlayDate(play.at))}</span>
+            </div>
+            <ol>${rows}</ol>
+          </article>
+        `;
+      })
+      .join("");
+  }
+
+  async function openAdmin() {
+    const draft = STORAGE.loadDraft();
+    renderAdmin(draft.length ? draft : QUESTIONS);
     setAdminStatus("", "");
     show("admin");
+    els.playsList.innerHTML = "";
+    try {
+      renderPlays(await STORAGE.loadPlays());
+    } catch {
+      els.playsList.innerHTML = `<p class="plays-empty">Impossible de charger les réponses.</p>`;
+    }
   }
 
   els.start.addEventListener("click", startCountdown);
@@ -314,7 +383,10 @@
     const current = collectAdmin();
     current.push(emptyQuestion());
     renderAdmin(current);
+    persistDraft();
   });
+
+  els.adminList.addEventListener("input", persistDraft);
 
   els.adminList.addEventListener("click", (event) => {
     const btn = event.target.closest(".btn-delete");
@@ -323,21 +395,20 @@
     card.remove();
     const current = collectAdmin();
     renderAdmin(current.length ? current : [emptyQuestion()]);
+    persistDraft();
   });
 
   els.saveQuestions.addEventListener("click", async () => {
     els.saveQuestions.disabled = true;
     setAdminStatus("Enregistrement…", "");
+    const current = collectAdmin();
+    persistDraft();
     try {
-      const result = await STORAGE.save(collectAdmin(), ADMIN_CODE);
+      const result = await STORAGE.save(current, ADMIN_CODE);
       QUESTIONS = result.questions;
-      renderAdmin(QUESTIONS);
+      renderAdmin(current);
       updateHome();
-      if (result.online) {
-        setAdminStatus("Enregistré.", "ok");
-      } else {
-        setAdminStatus("Erreur d’enregistrement en ligne.", "ko");
-      }
+      setAdminStatus("Enregistré.", "ok");
     } catch (err) {
       setAdminStatus(err.message || "Échec de l’enregistrement.", "ko");
     } finally {
